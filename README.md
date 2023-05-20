@@ -13,7 +13,7 @@ the technoligy chosen for this the following:
 
 ## Approach
 
-since i dont have much experience with performance optimization i have decided to try a few methods out and se what works best. 
+Since I dont have much experience with performance optimization I have decided to try a few methods out and se what works best. 
 
 * Sequencial on full text. This is implimented in the `DefaultBIService`
 * Parallel on full text. Not Implimented
@@ -25,7 +25,7 @@ Assumes a local instans with the default setup and windows authentication.
 with the following connection string working :
 `Server=.;Database=BI_Dev;Trusted_Connection=True`
 
-if you need to use an other database change the hardcoded connection string in `ServiceCollectionExtensions` and `BIDatabaseFactory`
+If you need to use an other database change the hardcoded connection string in `ServiceCollectionExtensions` and `BIDatabaseFactory`
 
 
 ## CLI setup 
