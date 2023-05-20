@@ -2,19 +2,19 @@
 using DataService.Interfaces;
 using Models;
 
-namespace DataService
+namespace DataService.Services
 {
     public class BIDataService : IDataService
     {
         private readonly BIContext _context;
         public BIDataService(BIContext context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));          
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public void AddWatchlistWord(string word)
         {
-            if(_context.WatchList.Select(x => x.Word.Equals(word)).ToList().Any()== false)
+            if (_context.WatchList.Select(x => x.Word.Equals(word)).ToList().Any() == false)
             {
                 var watchListEntity = new WatchListEntity()
                 {
@@ -22,7 +22,7 @@ namespace DataService
                 };
                 _context.WatchList.Add(watchListEntity);
                 _context.SaveChanges();
-            }                
+            }
         }
 
         public int HandleData(string paragraphs)
