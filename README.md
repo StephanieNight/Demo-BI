@@ -10,6 +10,13 @@ the technoligy chosen for this the following:
 * support Class libaries, C# .net 6.0
 * Local sql server. 
 
+since i dont have much experience with performance optimization i have decided to try a few methods out and se what works best. 
+
+* Sequencial on full text. 
+* Parallel on full text. 
+* parallel paragraphs and sequeltial word count
+* Hashed cache for unique words with watchlist update 
+
 # Database. 
 Assumes a local instans with the default setup and windows authentication.  
 with the following connection string working :
