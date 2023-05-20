@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainModels", "Domain.Models\DomainModels.csproj", "{2471E152-6363-4651-BD5C-B7691DB57381}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{936FA931-BA79-4C06-B3D9-5D9361CA42F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "Services\DataService\DataService.csproj", "{621CED8D-2135-40C9-8433-071AAC87DF75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{2471E152-6363-4651-BD5C-B7691DB57381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2471E152-6363-4651-BD5C-B7691DB57381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2471E152-6363-4651-BD5C-B7691DB57381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{621CED8D-2135-40C9-8433-071AAC87DF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{621CED8D-2135-40C9-8433-071AAC87DF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{621CED8D-2135-40C9-8433-071AAC87DF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{621CED8D-2135-40C9-8433-071AAC87DF75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{621CED8D-2135-40C9-8433-071AAC87DF75} = {936FA931-BA79-4C06-B3D9-5D9361CA42F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {129B9C11-C792-45E3-B2CC-4C823DAEADA0}
