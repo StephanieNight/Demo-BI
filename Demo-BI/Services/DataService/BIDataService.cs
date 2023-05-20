@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using DataService.Interfaces;
+using Models;
 
 namespace DataService
 {
@@ -9,6 +10,19 @@ namespace DataService
         public BIDataService(BIContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));          
+        }
+
+        public void AddWatchlistWord(string word)
+        {
+            if(_context.WatchList.Select(x => x.Word.Equals(word)).ToList().Any()== false)
+            {
+                var watchListEntity = new WatchListEntity()
+                {
+                    Word = word
+                };
+                _context.WatchList.Add(watchListEntity);
+                _context.SaveChanges();
+            }                
         }
 
         public int HandleData(string paragraphs)
