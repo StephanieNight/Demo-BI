@@ -15,13 +15,16 @@ since i dont have much experience with performance optimization i have decided t
 
 * Sequencial on full text. 
 * Parallel on full text. 
-* parallel paragraphs and sequeltial word count
+* Parallel paragraphs and sequeltial word count
 * Hashed cache for unique words with watchlist update 
 
 # Database. 
 Assumes a local instans with the default setup and windows authentication.  
 with the following connection string working :
 `Server=.;Database=BI_Dev;Trusted_Connection=True`
+
+if you need to use an other database change the hardcoded connection string in `ServiceCollectionExtensions` and `BIDatabaseFactory`
+
 
 ## CLI setup 
 if you dont have ef as part of your CLI tools use this command
