@@ -7,9 +7,14 @@ namespace DataService.Services
     public class DefaultBIService : IDataService
     {
         private readonly BIContext _context;
-        public DefaultBIService(BIContext context)
+        private readonly IUniqueWordsHandler _uniqueWordsHandler ;
+        public DefaultBIService(
+            BIContext context,
+            IUniqueWordsHandler uniqueWordsHandler
+            )
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _uniqueWordsHandler = uniqueWordsHandler ?? throw new ArgumentNullException(nameof(uniqueWordsHandler));
         }
 
         public void AddWatchlistWord(string word)
@@ -28,28 +33,12 @@ namespace DataService.Services
 
         public string[] GetUniqueWords(string paragraphs)
         {
-            var words = paragraphs.Split(new char[] { ' ', '\r', '\n' });
-            var Dictionary = new Dictionary<string, int>();
-            var startTimeTicks = DateTime.Now.Ticks;
-            foreach (var word in words)
-            {
-                if (Dictionary.ContainsKey(word))
-                {
-                    Dictionary[word]++;
-                }
-                else
-                {
-                    Dictionary.Add(word, 1);
-                }
-            }
-            var runtimeInTicks = DateTime.Now.Ticks - startTimeTicks;
-            var result = new Domain.Models.UniqueWordsEntity() { Count = Dictionary.Count };
-            _context.UniqueWords.Add(result);
+           var result = _uniqueWordsHandler.GetUniqueWords(paragraphs);
+           var entity = new Domain.Models.UniqueWordsEntity() { Count = result.Length };
+            _context.UniqueWords.Add(entity);
             _context.SaveChanges();
 
-            Console.WriteLine($"Runtime : {runtimeInTicks} Ticks");
-
-            return Dictionary.Keys.ToArray();
+            return result;
         }
 
         public string[] GetWatchlistWords(string[] words)

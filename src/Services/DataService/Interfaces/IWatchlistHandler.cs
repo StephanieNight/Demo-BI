@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataService.Interfaces
 {
-    public interface IDataHandler
+    internal interface IWatchlistHandler
     {
-        public int GetUniqueWordCount(string data);
         public string[] GetwordsOnWatchList(string data);
     }
 }
