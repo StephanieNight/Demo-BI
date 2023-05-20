@@ -11,12 +11,14 @@ the technoligy chosen for this the following:
 * support Class libaries, C# .net 6.0
 * Local sql server. 
 
+## Approach
+
 since i dont have much experience with performance optimization i have decided to try a few methods out and se what works best. 
 
-* Sequencial on full text. 
-* Parallel on full text. 
-* Parallel paragraphs and sequeltial word count
-* Hashed cache for unique words with watchlist update 
+* Sequencial on full text. This is implimented in the `DefaultBIService`
+* Parallel on full text. Not Implimented
+* Parallel paragraphs and sequeltial word count. Not Implimented
+* Hashed cache for unique words with watchlist update. Not Implimented
 
 # Database. 
 Assumes a local instans with the default setup and windows authentication.  
