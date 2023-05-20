@@ -29,7 +29,7 @@ if you dont have ef as part of your CLI tools use this command
 
 navigate to the dataaccess projet in from the console with this command 
 
-`cd .\DataAccess\`
+`cd .\Services\DataAccess\`
 
 from here you can create migrations 
 
@@ -49,3 +49,4 @@ List of usefull googles i did during this assingment.
 * Postman console log https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/
 * EF Core with MVC https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations?view=aspnetcore-7.0
 * Markdown https://www.markdownguide.org/basic-syntax/
+* SQL sequential guid https://stackoverflow.com/questions/47483679/entity-framework-uses-newsequentialid-for-guid-key
