@@ -1,5 +1,5 @@
 ﻿using Domain.Models;
-using DomainModels;
+using Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess
