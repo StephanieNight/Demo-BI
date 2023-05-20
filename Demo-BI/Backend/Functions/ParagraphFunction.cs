@@ -1,4 +1,5 @@
 using BackendAPI.Dtos;
+using DataService.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -14,6 +15,13 @@ namespace BackendAPI.Functions
 {
     public class ParagraphFunction : BaseFunction
     {
+        private readonly IDataService _dataService;
+
+        public ParagraphFunction(IDataService dataService)
+        {
+            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+        }
+
         [FunctionName("Paragraph")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
@@ -25,27 +33,16 @@ namespace BackendAPI.Functions
 
             ParagraphDTO data = JSONToObject<ParagraphDTO>(requestBody);
             log.LogInformation($"Got Data Length: {data.Paragraph.Length} ");
-
-            var words = data.Paragraph.Split(new char[] { ' ', '\r', '\n' });
-            var Dictionary = new Dictionary<string, int>();
-            var startTimeTicks = DateTime.Now.Ticks;
-            foreach (var word in words)
+            try
             {
-                if (Dictionary.ContainsKey(word))
-                {
-                    Dictionary[word]++;
-                }
-                else
-                { 
-                    Dictionary.Add(word, 1); 
-                }
-            }
-            var runtimeInTicks = DateTime.Now.Ticks - startTimeTicks;
-            log.LogInformation($"Runtime : {runtimeInTicks} Ticks");
-
-            ParagraphResponseDTO response = new ParagraphResponseDTO() { UniqueWords = Dictionary.Count };
-
-            return new OkObjectResult(response);
+                var uniquewordcount = _dataService.HandleData(data.Paragraph);
+                ParagraphResponseDTO response = new ParagraphResponseDTO() { UniqueWords = uniquewordcount };
+                return new OkObjectResult(response);
+            }   
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }            
         }
     }
 }
