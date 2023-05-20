@@ -21,7 +21,7 @@ namespace BackendAPI
             services.AddLogging();
 
             // == Services == 
-            services.AddTransient<IDataService, BIDataService>();
+            services.AddTransient<IDataService, DefaultBIService>();
 
             // == Builds provider ==
             services.BuildServiceProvider();
