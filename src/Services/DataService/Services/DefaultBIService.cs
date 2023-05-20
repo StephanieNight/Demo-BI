@@ -4,10 +4,10 @@ using Models;
 
 namespace DataService.Services
 {
-    public class BIDataService : IDataService
+    public class DefaultBIService : IDataService
     {
         private readonly BIContext _context;
-        public BIDataService(BIContext context)
+        public DefaultBIService(BIContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
