@@ -1,17 +1,14 @@
 ﻿using DataAccess;
 using DataService.Interfaces;
-using Microsoft.Extensions.Logging;
 
 namespace DataService
 {
-    public class DataService : IDataService
+    public class BIDataService : IDataService
     {
         private readonly BIContext _context;
-        private readonly ILogger _logger;
-        public DataService(BIContext context, ILogger log)
+        public BIDataService(BIContext context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-            _logger = log ?? throw new ArgumentNullException(nameof(log));
+            _context = context ?? throw new ArgumentNullException(nameof(context));          
         }
 
         public int HandleData(string paragraphs)
@@ -31,9 +28,13 @@ namespace DataService
                 }
             }
             var runtimeInTicks = DateTime.Now.Ticks - startTimeTicks;
-            _logger.LogInformation($"Runtime : {runtimeInTicks} Ticks");
+            var result = new Domain.Models.UniqueWordsEntity() { Count = Dictionary.Count };
+            _context.UniqueWords.Add(result);
+            _context.SaveChanges();
 
-            return Dictionary.Count;
+            Console.WriteLine($"Runtime : {runtimeInTicks} Ticks");
+
+            return result.Count;
         }
     }
 }

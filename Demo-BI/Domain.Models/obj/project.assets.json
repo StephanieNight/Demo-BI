@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_Git\\demoes\\Demo-BI\\Demo-BI\\Domain.Models\\DomainModels.csproj",
-      "projectName": "DomainModels",
-      "projectPath": "D:\\_Git\\demoes\\Demo-BI\\Demo-BI\\Domain.Models\\DomainModels.csproj",
+      "projectUniqueName": "D:\\_Git\\demoes\\Demo-BI\\Demo-BI\\Domain.Models\\Models.csproj",
+      "projectName": "Models",
+      "projectPath": "D:\\_Git\\demoes\\Demo-BI\\Demo-BI\\Domain.Models\\Models.csproj",
       "packagesPath": "C:\\Users\\Stephanie\\.nuget\\packages\\",
       "outputPath": "D:\\_Git\\demoes\\Demo-BI\\Demo-BI\\Domain.Models\\obj\\",
       "projectStyle": "PackageReference",
