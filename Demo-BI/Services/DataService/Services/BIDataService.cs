@@ -1,4 +1,4 @@
-﻿using DataAccess;
+using DataAccess;
 using DataService.Interfaces;
 using Models;
 
@@ -15,6 +15,7 @@ namespace DataService.Services
         public void AddWatchlistWord(string word)
         {
             if (_context.WatchList.Select(x => x.Word.Equals(word)).ToList().Any() == false)
+            if (_context.WatchList.Where(x => x.Word.Equals(word)).ToList().Any() == false)
             {
                 var watchListEntity = new WatchListEntity()
                 {
