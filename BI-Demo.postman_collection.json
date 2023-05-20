@@ -94,6 +94,37 @@
 									"response": []
 								}
 							]
+						},
+						{
+							"name": "Watchlist",
+							"item": [
+								{
+									"name": "Add a Word",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    // place in the word you would like to add\r\n    \"Word\" : \"titanic\" \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseURL}}/AddWatchList",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"AddWatchList"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
