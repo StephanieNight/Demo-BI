@@ -2,9 +2,10 @@
 This Demo is an assignement given to me as part of my jobinterview. it is mean to show some demonmstration of skills in data management. and be used as a talking point in further interviews. 
 
 Time Spend on this so far, this includes coffee and tea breaks and luches :  
-* Session 1 : 30 minutes to read and understand the assingment. 2023-05-18  
-* Session 2 : 6 Hours Building the application part 1 & 2. 2023-05-20.  
-* Session 3 : 1 hour  Building the application part 3. 2023-05-20.  
+* Session 1 : 30 minutes. To read and understand the assingment. 2023-05-18  
+* Session 2 : 6 Hours. Building the application part 1 & 2. 2023-05-20.  
+* Session 3 : 1 hour.  Building the application part 3. 2023-05-20.  
+* Session 4 : 30 minutes. Improvements 2023-05-20.  
 
 the technoligy chosen for this the following: 
 * For the backend, a Azure functions app, C# .net 6.0
@@ -44,6 +45,18 @@ from here you can create migrations
 and Update the database 
 
 `dotnet ef database update`
+
+
+# Postman collection 
+Located under the folder `.\tools\BI-Demo.postman_collection.json`
+
+in this collection i saved a few requests i used for implimenting this assingment, these are stored under the folder "OneShots"
+
+in the Tests folder you find a API test used to make sure the paragraph endpoind returned the correct respons always.
+
+
+# Testing 
+so far testing has not been much of a priority as i have not come up with a good unit test. however i did make and extend one API test with postman that is saved in the postman collection
 
 
 # Research 
