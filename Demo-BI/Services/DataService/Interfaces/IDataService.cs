@@ -4,7 +4,8 @@ namespace DataService.Interfaces
 {
     public interface IDataService
     {
-        public int HandleData(string paragraphs);     
+        public string[] GetUniqueWords(string paragraphs);
+        public string[] GetWatchlistWords(string[] words);
         public void AddWatchlistWord(string word);
     }
 }

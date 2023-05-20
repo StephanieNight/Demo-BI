@@ -25,7 +25,7 @@ namespace DataService.Services
             }
         }
 
-        public int HandleData(string paragraphs)
+        public string[] GetUniqueWords(string paragraphs)
         {
             var words = paragraphs.Split(new char[] { ' ', '\r', '\n' });
             var Dictionary = new Dictionary<string, int>();
@@ -48,7 +48,12 @@ namespace DataService.Services
 
             Console.WriteLine($"Runtime : {runtimeInTicks} Ticks");
 
-            return result.Count;
+            return Dictionary.Keys.ToArray();
+        }
+
+        public string[] GetWatchlistWords(string[] words)
+        {
+            return _context.WatchList.Where(x => words.Contains(x.Word)).Select(x => x.Word).ToArray();
         }
     }
 }
