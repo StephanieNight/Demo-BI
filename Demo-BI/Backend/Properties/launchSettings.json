@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "Backend-API": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 53950",
-      "launchBrowser": false
-    }
-  }
-}
