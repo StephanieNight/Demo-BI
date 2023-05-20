@@ -10,19 +10,37 @@
 			"name": "Backend",
 			"item": [
 				{
-					"name": "Paragraph",
+					"name": "Tests",
 					"item": [
 						{
-							"name": "8 paragraphs, 743 words, 5000 bytes",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
+							"name": "Unique words",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var json = JSON.parse(pm.response.text());\r",
+											"\r",
+											"pm.test(\"Response Include uniqueWords text\", function(){\r",
+											"    pm.expect(pm.response.text()).to.include(\"uniqueWords\")\r",
+											"});\r",
+											"pm.test(\"Response Include uniqueWords is json\", function(){\r",
+											"    pm.expect(json.uniqueWords).to.not.undefined\r",
+											"});\r",
+											"pm.test(\"Response Include uniqueWords to equal 4\", function(){\r",
+											"    pm.expect(json.uniqueWords).to.equal(4)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"Paragraph\" : \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nunc risus, consectetur non purus a, porttitor scelerisque metus. Phasellus ultricies ligula a nibh congue, ut venenatis nisl congue. Cras fringilla vestibulum elit, a cursus lacus placerat eget. Morbi facilisis risus et risus egestas pulvinar. Proin ornare commodo velit, ac faucibus lorem. Nunc sem est, sagittis nec leo in, luctus accumsan tellus. Ut aliquam molestie ligula, ac placerat lorem venenatis nec.\\r\\n\\r\\nSed maximus porta est, a accumsan dui mattis ac. Nam sagittis lectus eget elit fringilla tempor. Aenean viverra mi ut lorem feugiat efficitur. Nulla tellus odio, ultrices a fringilla a, consectetur sit amet metus. Aenean vitae purus velit. Praesent sodales urna tellus, vel varius diam vulputate in. Donec ac vulputate tellus. Curabitur bibendum convallis pulvinar. Curabitur quis sem fermentum, faucibus metus sed, volutpat quam. Sed vestibulum ex quis feugiat tincidunt. Vivamus vitae elementum ligula. Maecenas a consequat nunc, accumsan aliquet arcu. In lobortis lacus lorem, dapibus euismod lectus posuere et. In sollicitudin condimentum molestie. Sed dui lorem, convallis sit amet urna ac, tincidunt bibendum purus.\\r\\n\\r\\nMorbi non arcu libero. Vestibulum et sapien ullamcorper, suscipit odio in, egestas arcu. Ut lacinia feugiat sapien vitae feugiat. Proin quis lorem auctor, egestas felis vitae, fringilla dui. Integer at ipsum euismod, consequat ante et, rutrum nisl. Maecenas convallis elementum eleifend. Mauris convallis egestas facilisis. Vestibulum nec eros eu augue varius scelerisque. Duis vitae quam ac diam suscipit venenatis id eget nunc. Ut nec tortor placerat, rutrum felis ut, volutpat leo. Quisque malesuada luctus dui non fringilla. Proin vitae sem tempus, aliquam nunc non, mattis mauris. Donec tempor dui id lorem dictum ornare. Vestibulum eu cursus metus. Aliquam erat volutpat.\\r\\n\\r\\nInteger blandit bibendum rhoncus. In tortor lectus, maximus sit amet purus quis, suscipit commodo purus. Fusce sed hendrerit sapien. Nulla facilisi. Cras et mauris neque. Sed commodo accumsan dolor vitae euismod. Duis et condimentum eros. Nam purus eros, mattis et sollicitudin a, euismod eget metus. In vel dolor a erat venenatis tristique.\\r\\n\\r\\nEtiam blandit arcu vitae nisl blandit, non feugiat lacus bibendum. Sed id auctor sapien. Nunc eu dolor mattis, sollicitudin diam sed, congue ex. Fusce tincidunt, quam in maximus pharetra, nunc libero mollis est, sed faucibus nisl purus non libero. Pellentesque eleifend metus interdum mi pretium vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla dictum ipsum id malesuada eleifend. Vestibulum vitae nisi id augue egestas imperdiet a a erat. Praesent ullamcorper vitae lorem sed facilisis. Ut cursus, diam nec imperdiet rhoncus, tellus ante dapibus felis, eget vestibulum felis turpis sit amet diam. Ut eu interdum risus.\\r\\n\\r\\nAliquam congue massa in libero tristique egestas sed at nunc. Suspendisse vestibulum, purus at aliquam aliquet, nibh ante auctor neque, sit amet bibendum sem mauris sed nibh. Vestibulum accumsan odio eu lorem ultricies facilisis. Vestibulum felis lorem, sodales vehicula lacus at, tincidunt condimentum sem. Mauris blandit mattis scelerisque. Integer interdum ut dui nec viverra. Quisque facilisis in tortor et ornare. Maecenas sit amet magna at orci efficitur tincidunt a id augue. Proin eget suscipit nisi. Morbi pharetra neque non ante porttitor accumsan. Vivamus mattis dui at imperdiet feugiat. Quisque augue turpis, dictum eget tincidunt consequat, hendrerit eu urna. Pellentesque nulla sem, convallis vitae velit ac, aliquam iaculis odio. Curabitur neque ligula, dictum sit amet nulla id, aliquet facilisis nibh. Mauris accumsan diam in lobortis aliquam.\\r\\n\\r\\nUt ut sem ex. Vivamus porttitor imperdiet luctus. Proin nec ex aliquet, dictum dui in, tempor justo. Phasellus elementum nunc purus, sed gravida neque scelerisque ut. Suspendisse nec risus nec diam blandit porta vitae sit amet justo. Donec fermentum porttitor fermentum. Etiam auctor mollis cursus. Donec nec semper nulla, eu cursus quam. Duis et leo non orci consectetur auctor non eu leo. Mauris viverra metus eu erat laoreet, at consequat metus varius. Praesent viverra molestie eros, scelerisque egestas purus consectetur id. Pellentesque nec ante porttitor, vestibulum tortor lobortis, mollis orci. Aliquam lorem ligula, iaculis sed pretium a, varius ac ligula.\\r\\n\\r\\nCras quis condimentum libero, quis auctor leo. Morbi felis enim, gravida vitae purus sit amet, blandit mollis urna. Maecenas vitae quam sit amet est maximus tincidunt. Aliquam iaculis at mi sed venenatis. In sed dui in diam ullamcorper pulvinar eget eu mi. Maecenas posuere elementum leo a facilisis. Fusce nec lacinia augue. Integer consequat lobortis turpis, non sodales nisl tempus sed. In ligula ipsum, placerat vitae mauris nec, facilisis ultrices turpis. Nulla nec justo condimentum, blandit lacus eget, imperdiet lacus. Duis eget posuere nulla, non blandit erat. Aliquam ligula.\" \r\n}",
+									"raw": "{\r\n    // Generated from https://www.lipsum.com with 8 paragraphs, 743 words, 5000 bytes \r\n    \"Paragraph\" : \"a captain on a boat\" \r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -40,6 +58,42 @@
 								}
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "Oneshots",
+					"item": [
+						{
+							"name": "Paragraph",
+							"item": [
+								{
+									"name": "5000 bytes of data",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    // Generated from https://www.lipsum.com with 8 paragraphs, 743 words, 5000 bytes \r\n    \"Paragraph\" : \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nunc risus, consectetur non purus a, porttitor scelerisque metus. Phasellus ultricies ligula a nibh congue, ut venenatis nisl congue. Cras fringilla vestibulum elit, a cursus lacus placerat eget. Morbi facilisis risus et risus egestas pulvinar. Proin ornare commodo velit, ac faucibus lorem. Nunc sem est, sagittis nec leo in, luctus accumsan tellus. Ut aliquam molestie ligula, ac placerat lorem venenatis nec.\\r\\n\\r\\nSed maximus porta est, a accumsan dui mattis ac. Nam sagittis lectus eget elit fringilla tempor. Aenean viverra mi ut lorem feugiat efficitur. Nulla tellus odio, ultrices a fringilla a, consectetur sit amet metus. Aenean vitae purus velit. Praesent sodales urna tellus, vel varius diam vulputate in. Donec ac vulputate tellus. Curabitur bibendum convallis pulvinar. Curabitur quis sem fermentum, faucibus metus sed, volutpat quam. Sed vestibulum ex quis feugiat tincidunt. Vivamus vitae elementum ligula. Maecenas a consequat nunc, accumsan aliquet arcu. In lobortis lacus lorem, dapibus euismod lectus posuere et. In sollicitudin condimentum molestie. Sed dui lorem, convallis sit amet urna ac, tincidunt bibendum purus.\\r\\n\\r\\nMorbi non arcu libero. Vestibulum et sapien ullamcorper, suscipit odio in, egestas arcu. Ut lacinia feugiat sapien vitae feugiat. Proin quis lorem auctor, egestas felis vitae, fringilla dui. Integer at ipsum euismod, consequat ante et, rutrum nisl. Maecenas convallis elementum eleifend. Mauris convallis egestas facilisis. Vestibulum nec eros eu augue varius scelerisque. Duis vitae quam ac diam suscipit venenatis id eget nunc. Ut nec tortor placerat, rutrum felis ut, volutpat leo. Quisque malesuada luctus dui non fringilla. Proin vitae sem tempus, aliquam nunc non, mattis mauris. Donec tempor dui id lorem dictum ornare. Vestibulum eu cursus metus. Aliquam erat volutpat.\\r\\n\\r\\nInteger blandit bibendum rhoncus. In tortor lectus, maximus sit amet purus quis, suscipit commodo purus. Fusce sed hendrerit sapien. Nulla facilisi. Cras et mauris neque. Sed commodo accumsan dolor vitae euismod. Duis et condimentum eros. Nam purus eros, mattis et sollicitudin a, euismod eget metus. In vel dolor a erat venenatis tristique.\\r\\n\\r\\nEtiam blandit arcu vitae nisl blandit, non feugiat lacus bibendum. Sed id auctor sapien. Nunc eu dolor mattis, sollicitudin diam sed, congue ex. Fusce tincidunt, quam in maximus pharetra, nunc libero mollis est, sed faucibus nisl purus non libero. Pellentesque eleifend metus interdum mi pretium vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla dictum ipsum id malesuada eleifend. Vestibulum vitae nisi id augue egestas imperdiet a a erat. Praesent ullamcorper vitae lorem sed facilisis. Ut cursus, diam nec imperdiet rhoncus, tellus ante dapibus felis, eget vestibulum felis turpis sit amet diam. Ut eu interdum risus.\\r\\n\\r\\nAliquam congue massa in libero tristique egestas sed at nunc. Suspendisse vestibulum, purus at aliquam aliquet, nibh ante auctor neque, sit amet bibendum sem mauris sed nibh. Vestibulum accumsan odio eu lorem ultricies facilisis. Vestibulum felis lorem, sodales vehicula lacus at, tincidunt condimentum sem. Mauris blandit mattis scelerisque. Integer interdum ut dui nec viverra. Quisque facilisis in tortor et ornare. Maecenas sit amet magna at orci efficitur tincidunt a id augue. Proin eget suscipit nisi. Morbi pharetra neque non ante porttitor accumsan. Vivamus mattis dui at imperdiet feugiat. Quisque augue turpis, dictum eget tincidunt consequat, hendrerit eu urna. Pellentesque nulla sem, convallis vitae velit ac, aliquam iaculis odio. Curabitur neque ligula, dictum sit amet nulla id, aliquet facilisis nibh. Mauris accumsan diam in lobortis aliquam.\\r\\n\\r\\nUt ut sem ex. Vivamus porttitor imperdiet luctus. Proin nec ex aliquet, dictum dui in, tempor justo. Phasellus elementum nunc purus, sed gravida neque scelerisque ut. Suspendisse nec risus nec diam blandit porta vitae sit amet justo. Donec fermentum porttitor fermentum. Etiam auctor mollis cursus. Donec nec semper nulla, eu cursus quam. Duis et leo non orci consectetur auctor non eu leo. Mauris viverra metus eu erat laoreet, at consequat metus varius. Praesent viverra molestie eros, scelerisque egestas purus consectetur id. Pellentesque nec ante porttitor, vestibulum tortor lobortis, mollis orci. Aliquam lorem ligula, iaculis sed pretium a, varius ac ligula.\\r\\n\\r\\nCras quis condimentum libero, quis auctor leo. Morbi felis enim, gravida vitae purus sit amet, blandit mollis urna. Maecenas vitae quam sit amet est maximus tincidunt. Aliquam iaculis at mi sed venenatis. In sed dui in diam ullamcorper pulvinar eget eu mi. Maecenas posuere elementum leo a facilisis. Fusce nec lacinia augue. Integer consequat lobortis turpis, non sodales nisl tempus sed. In ligula ipsum, placerat vitae mauris nec, facilisis ultrices turpis. Nulla nec justo condimentum, blandit lacus eget, imperdiet lacus. Duis eget posuere nulla, non blandit erat. Aliquam ligula.\" \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BaseURL}}/paragraph",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"paragraph"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
