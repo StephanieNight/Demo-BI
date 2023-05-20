@@ -3,7 +3,7 @@ This Demo is an assignement given to me as part of my jobinterview. it is mean t
 
 Time Spend on this so far, this includes coffee and tea breaks and luches :  
 * Session 1 : 30 minutes to read and understand the assingment. 2023-05-18  
-* Session 2 : x Building the application. 2023-05-20.  
+* Session 2 : 6 Hours Building the application part 1 & 2. 2023-05-20.  
 
 the technoligy chosen for this the following: 
 * For the backend, a Azure functions app, C# .net 6.0
