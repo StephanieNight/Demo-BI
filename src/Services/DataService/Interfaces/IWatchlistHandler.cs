@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataService.Interfaces
 {
-    internal interface IWatchlistHandler
+    public interface IWatchlistHandler
     {
-        public string[] GetwordsOnWatchList(string data);
+        public string[] GetwordsOnWatchList(string[] data);
+        public void AddWatchlistWord(string word);
     }
 }

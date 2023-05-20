@@ -37,13 +37,13 @@ namespace BackendAPI.Functions
             {
                 var startTimeTicks = DateTime.Now.Ticks;
 
-                var uniqueword = _dataService.GetUniqueWords(data.Paragraph);
-                var watchlistwords = _dataService.GetWatchlistWords(uniqueword);
+                var uniquewords = _dataService.GetUniqueWords(data.Paragraph);
+                var watchlistwords = _dataService.GetwordsOnWatchList(uniquewords);
 
                 var runtimeInTicks = DateTime.Now.Ticks - startTimeTicks;
 
                 ParagraphResponseDTO response = new ParagraphResponseDTO() { 
-                    UniqueWords = uniqueword.Length,
+                    UniqueWords = uniquewords.Length,
                     WatchlistWords = watchlistwords 
                 };
 
