@@ -21,7 +21,7 @@ namespace DataService.Services
                 ElapsedTimeMs = elapsedTimeMs,
             };
             _context.Logs.Add(logEntity);
-
+            _context.SaveChanges();
         }
     }
 }
