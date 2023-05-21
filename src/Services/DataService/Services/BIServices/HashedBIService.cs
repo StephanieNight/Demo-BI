@@ -2,7 +2,7 @@
 using DataService.Handlers.UniqueWords;
 using Models;
 
-namespace DataService.Services
+namespace DataService.Services.BIServices
 {
     public class HashedBIService : BaseService
     {
@@ -12,16 +12,17 @@ namespace DataService.Services
         {
             var hash = paragraphs.GetHashCode();
             var databaseResult = _context.HashedUniqueWords.Where(x => x.Hash == hash).Select(x => x.Words).FirstOrDefault();
-            if(databaseResult != null)
+            if (databaseResult != null)
             {
                 return databaseResult.Split(',');
             }
-            
+
             var result = _uniqueWordsHandler.GetUniqueWords(paragraphs);
-            var entity = new HashedUniqueWordsEntitiy() {
+            var entity = new HashedUniqueWordsEntitiy()
+            {
                 Count = result.Length,
-                Hash = hash, 
-                Words= String.Join(',',result)
+                Hash = hash,
+                Words = string.Join(',', result)
             };
 
             _context.HashedUniqueWords.Add(entity);

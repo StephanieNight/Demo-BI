@@ -2,12 +2,12 @@
 using DataService.Interfaces;
 using Models;
 
-namespace DataService.Services
+namespace DataService.Services.BIServices
 {
     public abstract class BaseService : IDataService
     {
         public readonly BIContext _context;
-        public readonly IUniqueWordsHandler _uniqueWordsHandler ;
+        public readonly IUniqueWordsHandler _uniqueWordsHandler;
         public BaseService(
             BIContext context,
             IUniqueWordsHandler uniqueWordsHandler
@@ -37,8 +37,8 @@ namespace DataService.Services
 
         public string[] GetUniqueWords(string paragraphs)
         {
-           var result = _uniqueWordsHandler.GetUniqueWords(paragraphs);
-           var entity = new Domain.Models.UniqueWordsEntity() { Count = result.Length };
+            var result = _uniqueWordsHandler.GetUniqueWords(paragraphs);
+            var entity = new Domain.Models.UniqueWordsEntity() { Count = result.Length };
 
             _context.UniqueWords.Add(entity);
             _context.SaveChanges();
