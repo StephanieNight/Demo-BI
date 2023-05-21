@@ -35,12 +35,16 @@ namespace BackendAPI.Functions
             log.LogInformation($"Got Data Length: {data.Paragraph.Length} ");
             try
             {
-                var startTimeTicks = DateTime.Now.Ticks;
+                // Create new stopwatch.
+                var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
                 var uniquewords = _dataService.GetUniqueWords(data.Paragraph);
                 var watchlistwords = _dataService.GetwordsOnWatchList(uniquewords);
 
-                var runtimeInTicks = DateTime.Now.Ticks - startTimeTicks;
+                // Stop timing.
+                stopwatch.Stop();
+
+                log.LogInformation($"runtime : {stopwatch.ElapsedMilliseconds} ms");
 
                 ParagraphResponseDTO response = new ParagraphResponseDTO() { 
                     UniqueWords = uniquewords.Length,
