@@ -26,7 +26,7 @@ Since I dont have much experience with performance optimization I have decided t
 to test these approaches i made a logging table. this table contains statics on each run like, what service was used, how much data was handled, and in what time. this in combination with the postman collection has lead to the majorty of the testing.
 
 # Database. 
-Assumes a local instans with the default setup and windows authentication.  
+was writen as a Code first project, and assumes a local instans with the default setup and windows authentication.  
 with the following connection string working :
 `Server=.;Database=BI_Dev;Trusted_Connection=True`
 
