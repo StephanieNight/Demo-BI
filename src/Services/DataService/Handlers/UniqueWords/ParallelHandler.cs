@@ -1,4 +1,4 @@
-using DataService.Interfaces;
+﻿using DataService.Interfaces;
 using System.Collections.Concurrent;
 using System.Reflection.Metadata.Ecma335;
 
@@ -16,14 +16,7 @@ namespace DataService.Handlers.UniqueWords
                 var word = words[index];
                 if (String.IsNullOrEmpty(word) == false)
                 {
-                    if (Dictionary.ContainsKey(word))
-                    {
-                        Dictionary[word]++;
-                    }
-                    else
-                    {
-                        Dictionary.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
-                    }
+                    Dictionary.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
                 }
             });
             return Dictionary.Keys.ToArray();
