@@ -8,7 +8,7 @@ namespace DataService.Handlers.UniqueWords
         public string[] GetUniqueWords(string data)
         {
             var paragraphs = data.Split("\r\n\r\n");
-            
+
             var Dictionary = new ConcurrentDictionary<string, int>();
 
             Parallel.For(0, paragraphs.Length, index =>
@@ -21,7 +21,8 @@ namespace DataService.Handlers.UniqueWords
                     {
                         if (String.IsNullOrEmpty(word) == false)
                         {
-                            Dictionary.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
+                            var lowerword = word.Trim().ToLower();
+                            Dictionary.AddOrUpdate(lowerword, 1, (key, oldValue) => oldValue + 1);
                         }
                     }
                 }

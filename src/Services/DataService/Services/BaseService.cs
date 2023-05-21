@@ -6,8 +6,8 @@ namespace DataService.Services
 {
     public abstract class BaseService : IDataService
     {
-        private readonly BIContext _context;        
-        private readonly IUniqueWordsHandler _uniqueWordsHandler ;
+        public readonly BIContext _context;
+        public readonly IUniqueWordsHandler _uniqueWordsHandler ;
         public BaseService(
             BIContext context,
             IUniqueWordsHandler uniqueWordsHandler

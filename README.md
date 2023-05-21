@@ -20,7 +20,10 @@ Since I dont have much experience with performance optimization I have decided t
 * Sequencial on full text. This is implimented in the `DefaultBIService` class.
 * Parallel on full text. This is implimented in the `ParallelBIService` class.
 * Parallel paragraphs and sequeltial word count. This is implimented in the `ParagraphBIService` class. 
-* Hashed cache for unique words with watchlist update. Not Implimented
+* Hashed cache for unique words with watchlist update. This is implimented in the `HashedBIService` class. 
+
+## Test
+to test these approaches 
 
 # Database. 
 Assumes a local instans with the default setup and windows authentication.  
@@ -43,10 +46,13 @@ from here you can create migrations
 
 `dotnet ef migrations add [MigrationName]`
 
-and Update the database 
+and update the database 
 
 `dotnet ef database update`
 
+and delete the database 
+
+`dotnet ef database drop`
 
 # Postman collection 
 Located under the folder `.\tools\BI-Demo.postman_collection.json`
