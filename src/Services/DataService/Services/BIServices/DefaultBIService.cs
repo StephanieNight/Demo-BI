@@ -1,7 +1,7 @@
 ﻿using DataAccess;
 using DataService.Handlers.UniqueWords;
 
-namespace DataService.Services
+namespace DataService.Services.BIServices
 {
     public class DefaultBIService : BaseService
     {
