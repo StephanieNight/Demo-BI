@@ -35,12 +35,18 @@ namespace BackendAPI.Functions
             log.LogInformation($"Got Data Length: {data.Paragraph.Length} ");
             try
             {
-                var uniqueword = _dataService.GetUniqueWords(data.Paragraph);
-                var watchlistwords = _dataService.GetWatchlistWords(uniqueword);
+                var startTimeTicks = DateTime.Now.Ticks;
+
+                var uniquewords = _dataService.GetUniqueWords(data.Paragraph);
+                var watchlistwords = _dataService.GetwordsOnWatchList(uniquewords);
+
+                var runtimeInTicks = DateTime.Now.Ticks - startTimeTicks;
+
                 ParagraphResponseDTO response = new ParagraphResponseDTO() { 
-                    UniqueWords = uniqueword.Length,
+                    UniqueWords = uniquewords.Length,
                     WatchlistWords = watchlistwords 
                 };
+
                 return new OkObjectResult(response);
             }   
             catch (Exception ex)

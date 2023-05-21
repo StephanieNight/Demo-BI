@@ -1,60 +1,12 @@
 ﻿using DataAccess;
-using DataService.Interfaces;
-using Models;
+using DataService.Handlers.UniqueWords;
+
+
 
 namespace DataService.Services
 {
-    public class DefaultBIService : IDataService
+    public class DefaultBIService : BaseService
     {
-        private readonly BIContext _context;
-        public DefaultBIService(BIContext context)
-        {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-        }
-
-        public void AddWatchlistWord(string word)
-        {
-            word = word.ToLower();
-            if (_context.WatchList.Where(x => x.Word.Equals(word)).ToList().Any() == false)
-            {
-                var watchListEntity = new WatchListEntity()
-                {
-                    Word = word
-                };
-                _context.WatchList.Add(watchListEntity);
-                _context.SaveChanges();
-            }
-        }
-
-        public string[] GetUniqueWords(string paragraphs)
-        {
-            var words = paragraphs.Split(new char[] { ' ', '\r', '\n' });
-            var Dictionary = new Dictionary<string, int>();
-            var startTimeTicks = DateTime.Now.Ticks;
-            foreach (var word in words)
-            {
-                if (Dictionary.ContainsKey(word))
-                {
-                    Dictionary[word]++;
-                }
-                else
-                {
-                    Dictionary.Add(word, 1);
-                }
-            }
-            var runtimeInTicks = DateTime.Now.Ticks - startTimeTicks;
-            var result = new Domain.Models.UniqueWordsEntity() { Count = Dictionary.Count };
-            _context.UniqueWords.Add(result);
-            _context.SaveChanges();
-
-            Console.WriteLine($"Runtime : {runtimeInTicks} Ticks");
-
-            return Dictionary.Keys.ToArray();
-        }
-
-        public string[] GetWatchlistWords(string[] words)
-        {
-            return _context.WatchList.Where(x => words.Contains(x.Word)).Select(x => x.Word).ToArray();
-        }
+        public DefaultBIService(BIContext context) : base(context, new SequentialHandler()) { }
     }
 }
