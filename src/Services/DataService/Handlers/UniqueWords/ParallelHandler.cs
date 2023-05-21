@@ -1,4 +1,4 @@
-﻿using DataService.Interfaces;
+using DataService.Interfaces;
 using System.Collections.Concurrent;
 using System.Reflection.Metadata.Ecma335;
 
@@ -8,7 +8,7 @@ namespace DataService.Handlers.UniqueWords
     {
         public string[] GetUniqueWords(string data)
         {
-            var words = data.Split(new char[] { ' ', '\r', '\n' });
+            var words = data.Split(Constants.Chars);
             var Dictionary = new ConcurrentDictionary<string, int>();
 
             Parallel.For(0, words.Length, index =>
