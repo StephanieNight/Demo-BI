@@ -17,9 +17,9 @@ the technoligy chosen for this the following:
 
 Since I dont have much experience with performance optimization I have decided to try a few methods out and se what works best. 
 
-* Sequencial on full text. This is implimented in the `DefaultBIService`
-* Parallel on full text. `ParallelBIService`
-* Parallel paragraphs and sequeltial word count. Not Implimented
+* Sequencial on full text. This is implimented in the `DefaultBIService` class.
+* Parallel on full text. This is implimented in the `ParallelBIService` class.
+* Parallel paragraphs and sequeltial word count. This is implimented in the `ParagraphBIService` class. 
 * Hashed cache for unique words with watchlist update. Not Implimented
 
 # Database. 
