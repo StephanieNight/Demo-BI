@@ -1,5 +1,6 @@
 ﻿using DataService.Extensions;
 using DataService.Interfaces;
+using DataService.Services;
 using DataService.Services.BIServices;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,8 @@ namespace BackendAPI
             services.AddLogging();
 
             // == Services == 
-            services.AddTransient<IDataService, DefaultBIService>(); 
+            services.AddTransient<IDataService, DefaultBIService>();
+            services.AddTransient<ILoggingService, LoggingService>();
 
             // == Builds provider ==
             services.BuildServiceProvider();

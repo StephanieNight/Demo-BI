@@ -16,10 +16,12 @@ namespace BackendAPI.Functions
     public class ParagraphFunction : BaseFunction
     {
         private readonly IDataService _dataService;
+        private readonly ILoggingService _loggingService;
 
-        public ParagraphFunction(IDataService dataService)
+        public ParagraphFunction(IDataService dataService, ILoggingService loggingService)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            _loggingService = loggingService ?? throw new ArgumentNullException(nameof(loggingService));
         }
 
         [FunctionName("Paragraph")]
@@ -45,6 +47,8 @@ namespace BackendAPI.Functions
                 stopwatch.Stop();
 
                 log.LogInformation($"runtime : {stopwatch.ElapsedMilliseconds} ms");
+
+                _loggingService.Log(nameof(_dataService), data.Paragraph.Length, stopwatch.ElapsedMilliseconds);
 
                 ParagraphResponseDTO response = new ParagraphResponseDTO() { 
                     UniqueWords = uniquewords.Length,
