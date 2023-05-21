@@ -6,7 +6,7 @@ namespace DataService.Handlers.UniqueWords
     {
         public string[] GetUniqueWords(string data)
         {
-            var words = data.Split(new char[] { ' ', '\r', '\n' });
+            var words = data.Split(Constants.Chars);
             var Dictionary = new Dictionary<string, int>();
 
             foreach (var word in words)

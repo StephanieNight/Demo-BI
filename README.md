@@ -5,7 +5,8 @@ Time Spend on this so far, this includes coffee and tea breaks and luches :
 * Session 1 : 30 minutes. To read and understand the assingment. 2023-05-18  
 * Session 2 : 6 Hours. Building the application part 1 & 2. 2023-05-20.  
 * Session 3 : 1 hour.  Building the application part 3. 2023-05-20.  
-* Session 4 : 30 minutes. Improvements 2023-05-20.  
+* Session 4 : 30 minutes. Improvements. 2023-05-20.  
+* Session 5 : X Hours. Implimented the different approches and tested them. 2023-05-21
 
 the technoligy chosen for this the following: 
 * For the backend, a Azure functions app, C# .net 6.0
@@ -16,9 +17,9 @@ the technoligy chosen for this the following:
 
 Since I dont have much experience with performance optimization I have decided to try a few methods out and se what works best. 
 
-* Sequencial on full text. This is implimented in the `DefaultBIService`
-* Parallel on full text. Not Implimented
-* Parallel paragraphs and sequeltial word count. Not Implimented
+* Sequencial on full text. This is implimented in the `DefaultBIService` class.
+* Parallel on full text. This is implimented in the `ParallelBIService` class.
+* Parallel paragraphs and sequeltial word count. This is implimented in the `ParagraphBIService` class. 
 * Hashed cache for unique words with watchlist update. Not Implimented
 
 # Database. 
@@ -69,3 +70,6 @@ List of usefull googles i did during this assingment.
 * EF Core with MVC https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations?view=aspnetcore-7.0
 * Markdown https://www.markdownguide.org/basic-syntax/
 * SQL sequential guid https://stackoverflow.com/questions/47483679/entity-framework-uses-newsequentialid-for-guid-key
+* Parallel For loop https://www.dotnetperls.com/parallel-for
+* Stopwatch https://www.dotnetperls.com/stopwatch
+* Concurent Dictionary https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2.addorupdate?redirectedfrom=MSDN&view=net-7.0#overloads
