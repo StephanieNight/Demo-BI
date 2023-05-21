@@ -48,7 +48,7 @@ namespace BackendAPI.Functions
 
                 log.LogInformation($"runtime : {stopwatch.ElapsedMilliseconds} ms");
 
-                _loggingService.Log(nameof(_dataService), data.Paragraph.Length, stopwatch.ElapsedMilliseconds);
+                _loggingService.Log(_dataService.GetType().Name, data.Paragraph.Length, stopwatch.ElapsedMilliseconds);
 
                 ParagraphResponseDTO response = new ParagraphResponseDTO() { 
                     UniqueWords = uniquewords.Length,
