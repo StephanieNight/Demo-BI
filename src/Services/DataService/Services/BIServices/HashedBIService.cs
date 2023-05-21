@@ -8,7 +8,7 @@ namespace DataService.Services.BIServices
     {
         public HashedBIService(BIContext context) : base(context, new ParagraphHandler()) { }
 
-        public new string[] GetUniqueWords(string paragraphs)
+        public override string[] GetUniqueWords(string paragraphs)
         {
             var hash = paragraphs.GetHashCode();
             var databaseResult = _context.HashedUniqueWords.Where(x => x.Hash == hash).Select(x => x.Words).FirstOrDefault();

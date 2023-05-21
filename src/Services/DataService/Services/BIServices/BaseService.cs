@@ -35,7 +35,7 @@ namespace DataService.Services.BIServices
             return _context.WatchList.Where(x => data.Contains(x.Word)).Select(x => x.Word).ToArray();
         }
 
-        public string[] GetUniqueWords(string paragraphs)
+        public virtual string[] GetUniqueWords(string paragraphs)
         {
             var result = _uniqueWordsHandler.GetUniqueWords(paragraphs);
             var entity = new Domain.Models.UniqueWordsEntity() { Count = result.Length };
