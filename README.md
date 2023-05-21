@@ -62,7 +62,7 @@ in this collection i saved a few requests i used for implimenting this assingmen
 in the Tests folder you find a API test used to make sure the paragraph endpoind returned the correct respons always.
 
 
-# Testing 
+# Unit-Testing 
 so far testing has not been much of a priority as i have not come up with a good unit test. however i did make and extend one API test with postman that is saved in the postman collection
 
 
