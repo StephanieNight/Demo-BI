@@ -11,13 +11,14 @@ namespace DataService.Handlers.UniqueWords
 
             foreach (var word in words)
             {
-                if (Dictionary.ContainsKey(word))
+                var lowerword = word.Trim().ToLower();
+                if (Dictionary.ContainsKey(lowerword))
                 {
-                    Dictionary[word]++;
+                    Dictionary[lowerword]++;
                 }
                 else
                 {
-                    Dictionary.Add(word, 1);
+                    Dictionary.Add(lowerword, 1);
                 }
             }
             return Dictionary.Keys.ToArray();   

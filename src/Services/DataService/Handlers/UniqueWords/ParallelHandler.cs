@@ -13,7 +13,7 @@ namespace DataService.Handlers.UniqueWords
 
             Parallel.For(0, words.Length, index =>
             {
-                var word = words[index];
+                var word = words[index].Trim().ToLower(); 
                 if (String.IsNullOrEmpty(word) == false)
                 {
                     Dictionary.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
