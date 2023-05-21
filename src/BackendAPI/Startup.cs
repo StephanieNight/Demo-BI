@@ -1,6 +1,6 @@
 ﻿using DataService.Extensions;
 using DataService.Interfaces;
-using DataService.Services;
+using DataService.Services.BIServices;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
