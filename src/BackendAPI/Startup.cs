@@ -1,11 +1,9 @@
 ﻿using DataService.Extensions;
 using DataService.Interfaces;
 using DataService.Services;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using DataService.Services.BIServices;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.IO;
 
 [assembly: FunctionsStartup(typeof(BackendAPI.Startup))]
 namespace BackendAPI
@@ -22,6 +20,7 @@ namespace BackendAPI
 
             // == Services == 
             services.AddTransient<IDataService, DefaultBIService>();
+            services.AddTransient<ILoggingService, LoggingService>();
 
             // == Builds provider ==
             services.BuildServiceProvider();

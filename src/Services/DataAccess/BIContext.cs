@@ -8,6 +8,8 @@ namespace DataAccess
     {
         public BIContext(DbContextOptions<BIContext> options) : base (options) { }
         public virtual DbSet<UniqueWordsEntity> UniqueWords { get; set; }
+        public virtual DbSet<HashedUniqueWordsEntitiy> HashedUniqueWords { get; set; }
         public virtual DbSet<WatchListEntity> WatchList { get; set; }
+        public virtual DbSet<LogEntity> Logs { get; set; }
     }    
 }
