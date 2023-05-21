@@ -22,8 +22,8 @@ Since I dont have much experience with performance optimization I have decided t
 * Parallel paragraphs and sequeltial word count. This is implimented in the `ParagraphBIService` class. 
 * Hashed cache for unique words with watchlist update. This is implimented in the `HashedBIService` class. 
 
-## Test
-to test these approaches 
+## Test of the approach
+to test these approaches i made a logging table. this table contains statics on each run like, what service was used, how much data was handled, and in what time. this in combination with the postman collection has lead to the majorty of the testing.
 
 # Database. 
 Assumes a local instans with the default setup and windows authentication.  
@@ -73,6 +73,7 @@ List of usefull googles i did during this assingment.
 * Maximal lenght of a string : https://stackoverflow.com/questions/140468/what-is-the-maximum-possible-length-of-a-net-string  
 * Dictionary https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0
 * Postman console log https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/
+* Postman automated test Docs https://learning.postman.com/docs/writing-scripts/test-with-monitors/
 * EF Core with MVC https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations?view=aspnetcore-7.0
 * Markdown https://www.markdownguide.org/basic-syntax/
 * SQL sequential guid https://stackoverflow.com/questions/47483679/entity-framework-uses-newsequentialid-for-guid-key
